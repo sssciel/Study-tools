@@ -6,6 +6,7 @@ from sys import argv
 
 alphabet = "0123456789ABCDEF"
 
+# Not standart converter from 10 to base. Max base is 16.
 def dec_to_other(n, base):
     alphabet_ = alphabet[:base]
     
@@ -17,29 +18,33 @@ def dec_to_other(n, base):
         
     return result
 
-if len(argv) > 1:
-    input_ = argv[1::]
-    old_base, new_base = map(int, input_[:2])
-    input_number = input_[2]
-else:
-    old_base, new_base = map(int, input("Base numeral system and new system: ").split())
-    input_number = input("Number or expression: ")
-    
-if (not input_number.isdigit()):
-    input_number = str(sympify(input_number))
-        
-result = 0
-input_number = int(input_number, old_base)
-    
-match new_base:
-    case 2:
-        result = bin(input_number)[2::]
-    case 8:
-        result = oct(input_number)
-    case 16:
-        result = hex(input_number) 
-    case _:
-        result = dec_to_other(input_number, new_base)
+# Converter from n to k.
+def system_converter(old_base, new_base, n):
+    if (not n.isdigit()):
+        n = str(sympify(n))
             
-print("Result:", result)
-copy(result)
+    result = 0
+    n = int(n, old_base)
+        
+    match new_base:
+        case 2:
+            result = bin(n)[2::]
+        case 8:
+            result = oct(n)
+        case 16:
+            result = hex(n) 
+        case _:
+            result = dec_to_other(n, new_base)
+    return result
+
+if __name__ == "__main__": 
+    if len(argv) > 1:
+        input_ = argv[1::]
+        old_base, new_base = map(int, input_[:2])
+        input_number = input_[2]
+    else:
+        old_base, new_base = map(int, input("Base numeral system and new system: ").split())
+        input_number = input("Number or expression: ")
+    result = system_converter(old_base, new_base, input_number)
+    print("Result:", result)
+    copy(result)
