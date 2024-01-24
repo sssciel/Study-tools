@@ -4,6 +4,7 @@
 
 ### Numeral systems converter
 Converts your number from old_base to new_base and copy to clipboard. Minimum base is 2, maximum 16. Supports expressions and input through console args.
+
 **Some cases:**
 
 ```console
@@ -25,5 +26,6 @@ Generates a mask with the specified positions in the hexadecimal system and copi
 ```console
 foo@bar:~$ ./maskgenerator.py
 Enter the positions: 1 5-9 14
-Mask: 0x21f1 // binary representation "10000111110001"
+Hex mask: 0x21f1
+Binary mask: 10000111110001
 ```

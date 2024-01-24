@@ -21,9 +21,10 @@ def mask_generator(express):
                 bin_string = "0" * (tmp - len(bin_string)) + bin_string
             bin_len = len(bin_string)
             bin_string = bin_string[:bin_len - tmp] + "1" + bin_string[bin_len - tmp + 1:]
-    return system_converter(2, 16, bin_string)
+    return system_converter(2, 16, bin_string), bin_string
 
 if __name__ == "__main__":
-    result = mask_generator(input("Enter the positions: "))
-    print("Mask:", result)
-    copy(result)
+    resultHex, resultBin = mask_generator(input("Enter the positions: "))
+    print("Hex mask:", resultHex)
+    print("Binary mask:", resultBin)
+    copy(resultHex)
