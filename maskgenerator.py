@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 from numeralsystems import system_converter
 from pyperclip import copy
 
@@ -22,6 +24,6 @@ def mask_generator(express):
     return system_converter(2, 16, bin_string)
 
 if __name__ == "__main__":
-    result = mask_generator(input())
+    result = mask_generator(input("Enter the positions: "))
     print("Mask:", result)
     copy(result)
