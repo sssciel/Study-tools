@@ -1,6 +1,7 @@
 # Study tools
 
-*to make the python files in this folder executable, use: ``chmod +x *.py`` in the terminal*
+*to make the python files in this folder executable, use: ``chmod +x *.py`` in the terminal*\
+*Python 3.10 or higher is required*
 
 ### Numeral systems converter
 Converts your number from old_base to new_base and copy to clipboard. Minimum base is 2, maximum 16. Supports expressions and input through console args.
