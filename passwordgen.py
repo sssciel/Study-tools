@@ -24,8 +24,8 @@ if __name__ == "__main__":
     for i in range(1, passcount + 1):
         passTMP = ""
         
-        for j in range(passlen):
-            passTMP += random.choice(alphabet)
+        passTMP = random.choices(alphabet, k=passlen)
+        passTMP = "".join(passTMP)
             
         passwords.append(passTMP)
         print(i, ") ", passTMP, sep = "")
